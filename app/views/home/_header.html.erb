@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">NOTES</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in?%>
+      <li class="nav-item">
+        <%= link_to "Your notes",notes_path,class:"nav-link"%>
+      </li>
+
+       <li class="nav-item">
+            <%= link_to "New notes", new_note_path, class:"nav-link"%>
+          
+        </li>
+
+        <li class="nav-item">
+            <%= link_to "Sign out", destroy_user_session_path,class:"nav-link",method: :delete%>
+          
+        </li>
+
+         <li class="nav-item">
+            <%= link_to "Edit profile", edit_user_registration_path,class:"nav-link"%>
+          
+        </li>
+        <%else%>
+
+
+
+
+        
+         <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class:"nav-link"%>
+          
+        </li>
+
+        <li class="nav-item">
+            <%= link_to "Sign in", new_user_session_path, class:"nav-link"%>
+          
+        </li>
+        
+        <%end%>
+       
+         
+
+
+      
+      
+      
+     
+    </ul><% if user_signed_in?%>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" name="q"  placeholder="Search" aria-label="Search">
+      
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" action="/search">Search</button>
+
+
+  
+     
+    </form> <%end%>
+  </div>
+</nav>
